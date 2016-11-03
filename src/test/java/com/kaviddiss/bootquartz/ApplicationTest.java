@@ -1,6 +1,16 @@
 package com.kaviddiss.bootquartz;
 
+import com.kaviddiss.bootquartz.examples.example1.SimpleExample;
+import com.kaviddiss.bootquartz.examples.example2.SimpleTriggerExample;
+import com.kaviddiss.bootquartz.examples.example3.CronTriggerExample;
+import com.kaviddiss.bootquartz.examples.example4.JobStateExample;
+import com.kaviddiss.bootquartz.examples.example5.MisfireExample;
+import com.kaviddiss.bootquartz.examples.example6.JobExceptionExample;
+import com.kaviddiss.bootquartz.examples.example7.InterruptExample;
+import com.kaviddiss.bootquartz.examples.example8.CalendarExample;
+import com.kaviddiss.bootquartz.examples.example9.ListenerExample;
 import com.kaviddiss.bootquartz.job.SampleJob;
+
 import org.quartz.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.SpringApplicationConfiguration;
@@ -28,4 +38,36 @@ public class ApplicationTest extends AbstractTransactionalTestNGSpringContextTes
 
         Thread.sleep(5000);
     }
+    
+    @Test
+    public void test1() throws Exception {
+    	SimpleExample.run(scheduler);
+        //Thread.sleep(5000);
+    }
+    
+    @Test
+    public void test2() throws Exception {
+    	SimpleTriggerExample.run(scheduler);
+        //Thread.sleep(5000);
+    }
+    
+    @Test
+    public void testall() throws Exception {
+    	SimpleExample.run(scheduler);
+    	SimpleTriggerExample.run(scheduler);
+    	CronTriggerExample.run(scheduler);
+    	JobStateExample.run(scheduler);
+    	MisfireExample.run(scheduler);
+    	JobExceptionExample.run(scheduler);
+    	InterruptExample.run(scheduler);
+    	CalendarExample.run(scheduler);
+    	ListenerExample.run(scheduler);
+        //Thread.sleep(5000);
+    }
+    
+    @Test
+    public void MisfireExample() throws Exception{
+    	MisfireExample.run(scheduler);
+    }
+    
 }
