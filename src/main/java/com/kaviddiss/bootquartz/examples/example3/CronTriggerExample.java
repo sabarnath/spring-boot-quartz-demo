@@ -21,16 +21,14 @@ import static org.quartz.CronScheduleBuilder.cronSchedule;
 import static org.quartz.JobBuilder.newJob;
 import static org.quartz.TriggerBuilder.newTrigger;
 
+import java.util.Date;
+
 import org.quartz.CronTrigger;
 import org.quartz.JobDetail;
 import org.quartz.Scheduler;
-import org.quartz.SchedulerFactory;
 import org.quartz.SchedulerMetaData;
-import org.quartz.impl.StdSchedulerFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.Date;
 
 /**
  * This Example will demonstrate all of the basics of scheduling capabilities of Quartz using Cron Triggers.
@@ -41,18 +39,6 @@ public class CronTriggerExample {
 
   public static void run(Scheduler sched) throws Exception {
     Logger log = LoggerFactory.getLogger(CronTriggerExample.class);
-
-    /*log.info("------- Initializing -------------------");
-
-    // First we must get a reference to a scheduler
-    SchedulerFactory sf = new StdSchedulerFactory();
-    Scheduler sched = sf.getScheduler();
-
-    log.info("------- Initialization Complete --------");
-
-    log.info("------- Scheduling Jobs ----------------");
-*/
-    // jobs can be scheduled before sched.start() has been called
 
     // job 1 will run every 20 seconds
     JobDetail job = newJob(SimpleJob.class).withIdentity("job1", "group8").build();
@@ -121,28 +107,6 @@ public class CronTriggerExample {
              + trigger.getCronExpression());
 
     log.info("------- Starting Scheduler ----------------");
-
-    // All of the jobs have been added to the scheduler, but none of the
-    // jobs
-    // will run until the scheduler has been started
-    sched.start();
-
-    log.info("------- Started Scheduler -----------------");
-
-    log.info("------- Waiting five minutes... ------------");
-    /*try {
-      // wait five minutes to show jobs
-      Thread.sleep(300L * 1000L);
-      // executing...
-    } catch (Exception e) {
-      //
-    }*/
-
-    log.info("------- Shutting Down ---------------------");
-
-    //sched.shutdown(true);
-
-    log.info("------- Shutdown Complete -----------------");
 
     SchedulerMetaData metaData = sched.getMetaData();
     log.info("Executed " + metaData.getNumberOfJobsExecuted() + " jobs.");

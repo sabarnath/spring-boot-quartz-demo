@@ -31,44 +31,14 @@ div.shootout {padding:2em;border:3px #4854A8 solid}
 <body>
 <table cellspacing="0" cellpadding="0" class="result">
 <tr><th>Test</th><th class="numi">Methods<br/>Passed</th><th class="numi">Scenarios<br/>Passed</th><th class="numi"># skipped</th><th class="numi"># failed</th><th class="numi">Total<br/>Time</th><th class="numi">Included<br/>Groups</th><th class="numi">Excluded<br/>Groups</th></tr>
-<tr><td style="text-align:left;padding-right:2em">Default test</td><td class="numi">0</td><td class="numi">0</td><td class="numi">0</td><td class="numi_attn">1</td><td class="numi">70.7 seconds</td><td class="numi"></td><td class="numi"></td></tr>
+<tr><td style="text-align:left;padding-right:2em">Default test</td><td class="numi">1</td><td class="numi">1</td><td class="numi">0</td><td class="numi">0</td><td class="numi">7.9 seconds</td><td class="numi"></td><td class="numi"></td></tr>
 </table>
 <table cellspacing="0" cellpadding="0" class="passed" id="summary">
 <tr><th>Class</th><th>Method</th><th># of<br/>Scenarios</th><th>Start</th><th>Time<br/>(ms)</th></tr>
-<tr><th colspan="4">Default test &#8212; failed</th></tr>
-<tr class="failedodd"><td rowspan="1">com.kaviddiss.bootquartz.ApplicationTest</td><td><a href="#m1"><b>MisfireExample</b>  </a></td><td class="numi">1</td><td>1478086040054</td><td class="numi">62476</td></tr>
+<tr><th colspan="4">Default test &#8212; passed</th></tr>
+<tr class="passedodd"><td rowspan="1">com.kaviddiss.bootquartz.ApplicationTest</td><td><a href="#m1"><b>test</b>  </a></td><td class="numi">1</td><td>1478156724402</td><td class="numi">5021</td></tr>
 </table>
 <h1>Default test</h1>
-<h2 id="m1">com.kaviddiss.bootquartz.ApplicationTest:MisfireExample</h2>
-<div style="padding-left:3em">
-<p>Couldn&apos;t store job: JobDataMap values must be Strings when the &apos;useProperties&apos; property is set.  Key of offending value: ExecutionDelay</p>
-org.quartz.impl.jdbcjobstore.JobStoreSupport.storeJob(JobStoreSupport.java:1115)
-<br/>at org.quartz.impl.jdbcjobstore.JobStoreSupport$2.executeVoid(JobStoreSupport.java:1062)
-<br/>at org.quartz.impl.jdbcjobstore.JobStoreSupport$VoidTransactionCallback.execute(JobStoreSupport.java:3703)
-<br/>at org.quartz.impl.jdbcjobstore.JobStoreSupport$VoidTransactionCallback.execute(JobStoreSupport.java:3701)
-<br/>at org.quartz.impl.jdbcjobstore.JobStoreCMT.executeInLock(JobStoreCMT.java:245)
-<br/>at org.quartz.impl.jdbcjobstore.JobStoreSupport.storeJobAndTrigger(JobStoreSupport.java:1058)
-<br/>at org.quartz.core.QuartzScheduler.scheduleJob(QuartzScheduler.java:886)
-<br/>at org.quartz.impl.StdScheduler.scheduleJob(StdScheduler.java:249)
-<br/>at com.kaviddiss.bootquartz.examples.example5.MisfireExample.run(MisfireExample.java:81)
-<br/>at com.kaviddiss.bootquartz.ApplicationTest.MisfireExample(ApplicationTest.java:70)
-<br/>32 lines not shown
-<p>Caused by JobDataMap values must be Strings when the &apos;useProperties&apos; property is set.  Key of offending value: ExecutionDelay</p>
-org.quartz.impl.jdbcjobstore.StdJDBCDelegate.convertToProperty(StdJDBCDelegate.java:3158)
-<br/>at org.quartz.impl.jdbcjobstore.StdJDBCDelegate.serializeProperties(StdJDBCDelegate.java:3125)
-<br/>at org.quartz.impl.jdbcjobstore.StdJDBCDelegate.serializeJobData(StdJDBCDelegate.java:3077)
-<br/>at org.quartz.impl.jdbcjobstore.StdJDBCDelegate.insertJobDetail(StdJDBCDelegate.java:606)
-<br/>at org.quartz.impl.jdbcjobstore.JobStoreSupport.storeJob(JobStoreSupport.java:1112)
-<br/>at org.quartz.impl.jdbcjobstore.JobStoreSupport$2.executeVoid(JobStoreSupport.java:1062)
-<br/>at org.quartz.impl.jdbcjobstore.JobStoreSupport$VoidTransactionCallback.execute(JobStoreSupport.java:3703)
-<br/>at org.quartz.impl.jdbcjobstore.JobStoreSupport$VoidTransactionCallback.execute(JobStoreSupport.java:3701)
-<br/>at org.quartz.impl.jdbcjobstore.JobStoreCMT.executeInLock(JobStoreCMT.java:245)
-<br/>at org.quartz.impl.jdbcjobstore.JobStoreSupport.storeJobAndTrigger(JobStoreSupport.java:1058)
-<br/>at org.quartz.core.QuartzScheduler.scheduleJob(QuartzScheduler.java:886)
-<br/>at org.quartz.impl.StdScheduler.scheduleJob(StdScheduler.java:249)
-<br/>at com.kaviddiss.bootquartz.examples.example5.MisfireExample.run(MisfireExample.java:81)
-<br/>at com.kaviddiss.bootquartz.ApplicationTest.MisfireExample(ApplicationTest.java:70)
-<br/>32 lines not shown
-</div>
+<h2 id="m1">com.kaviddiss.bootquartz.ApplicationTest:test</h2>
 <p class="totop"><a href="#summary">back to summary</a></p>
 </body></html>

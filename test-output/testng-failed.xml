@@ -6,11 +6,11 @@
       <class name="com.kaviddiss.bootquartz.ApplicationTest">
         <methods>
           <include name="springTestContextBeforeTestClass"/>
+          <include name="testall"/>
           <include name="springTestContextPrepareTestInstance"/>
           <include name="springTestContextAfterTestClass"/>
           <include name="springTestContextBeforeTestMethod"/>
           <include name="springTestContextAfterTestMethod"/>
-          <include name="MisfireExample"/>
         </methods>
       </class> <!-- com.kaviddiss.bootquartz.ApplicationTest -->
     </classes>

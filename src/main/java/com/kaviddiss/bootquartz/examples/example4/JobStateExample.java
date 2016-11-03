@@ -22,16 +22,14 @@ import static org.quartz.JobBuilder.newJob;
 import static org.quartz.SimpleScheduleBuilder.simpleSchedule;
 import static org.quartz.TriggerBuilder.newTrigger;
 
+import java.util.Date;
+
 import org.quartz.JobDetail;
 import org.quartz.Scheduler;
-import org.quartz.SchedulerFactory;
 import org.quartz.SchedulerMetaData;
 import org.quartz.SimpleTrigger;
-import org.quartz.impl.StdSchedulerFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.Date;
 
 /**
  * This Example will demonstrate how job parameters can be passed into jobs and how state can be maintained
@@ -43,16 +41,6 @@ public class JobStateExample {
   public static void run(Scheduler sched) throws Exception {
     Logger log = LoggerFactory.getLogger(JobStateExample.class);
 
-    /*log.info("------- Initializing -------------------");
-
-    // First we must get a reference to a scheduler
-    SchedulerFactory sf = new StdSchedulerFactory();
-    Scheduler sched = sf.getScheduler();
-
-    log.info("------- Initialization Complete --------");
-
-    log.info("------- Scheduling Jobs ----------------");
-*/
     // get a "nice round" time a few seconds in the future....
     Date startTime = nextGivenSecondDate(null, 10);
 
@@ -86,29 +74,6 @@ public class JobStateExample {
     Date scheduleTime2 = sched.scheduleJob(job2, trigger2);
     log.info(job2.getKey().toString() + " will run at: " + scheduleTime2 + " and repeat: " + trigger2.getRepeatCount()
              + " times, every " + trigger2.getRepeatInterval() / 1000 + " seconds");
-
-    log.info("------- Starting Scheduler ----------------");
-
-    // All of the jobs have been added to the scheduler, but none of the jobs
-    // will run until the scheduler has been started
-    sched.start();
-
-    log.info("------- Started Scheduler -----------------");
-
-    log.info("------- Waiting 60 seconds... -------------");
-    /*try {
-      // wait five minutes to show jobs
-      Thread.sleep(60L * 1000L);
-      // executing...
-    } catch (Exception e) {
-      //
-    }*/
-
-    log.info("------- Shutting Down ---------------------");
-
-   //sched.shutdown(true);
-
-    log.info("------- Shutdown Complete -----------------");
 
     SchedulerMetaData metaData = sched.getMetaData();
     log.info("Executed " + metaData.getNumberOfJobsExecuted() + " jobs.");

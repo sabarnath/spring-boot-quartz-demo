@@ -43,17 +43,7 @@ public class CalendarExample {
   public static void run(Scheduler sched) throws Exception {
     final Logger log = LoggerFactory.getLogger(CalendarExample.class);
 
-   /* log.info("------- Initializing ----------------------");
-
-    // First we must get a reference to a scheduler
-    SchedulerFactory sf = new StdSchedulerFactory();
-    Scheduler sched = sf.getScheduler();
-
-    log.info("------- Initialization Complete -----------");
-
-    log.info("------- Scheduling Jobs -------------------");
-*/
-    // Add the holiday calendar to the schedule
+     // Add the holiday calendar to the schedule
     AnnualCalendar holidays = new AnnualCalendar();
 
     // fourth of July (July 4)
@@ -86,27 +76,6 @@ public class CalendarExample {
     // we will not run until the next day! (Nov 1)
     log.info(job.getKey() + " will run at: " + firstRunTime + " and repeat: " + trigger.getRepeatCount()
              + " times, every " + trigger.getRepeatInterval() / 1000 + " seconds");
-
-    // All of the jobs have been added to the scheduler, but none of the jobs
-    // will run until the scheduler has been started
-    log.info("------- Starting Scheduler ----------------");
-    sched.start();
-
-    // wait 30 seconds:
-    // note: nothing will run
-    log.info("------- Waiting 30 seconds... --------------");
-   /* try {
-      // wait 30 seconds to show jobs
-      Thread.sleep(30L * 1000L);
-      // executing...
-    } catch (Exception e) {
-      //
-    }*/
-
-    // shut down the scheduler
-    log.info("------- Shutting Down ---------------------");
-   // sched.shutdown(true);
-    log.info("------- Shutdown Complete -----------------");
 
     SchedulerMetaData metaData = sched.getMetaData();
     log.info("Executed " + metaData.getNumberOfJobsExecuted() + " jobs.");

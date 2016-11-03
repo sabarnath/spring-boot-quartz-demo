@@ -22,16 +22,14 @@ import static org.quartz.JobBuilder.newJob;
 import static org.quartz.SimpleScheduleBuilder.simpleSchedule;
 import static org.quartz.TriggerBuilder.newTrigger;
 
+import java.util.Date;
+
 import org.quartz.JobDetail;
 import org.quartz.Scheduler;
-import org.quartz.SchedulerFactory;
 import org.quartz.SchedulerMetaData;
 import org.quartz.SimpleTrigger;
-import org.quartz.impl.StdSchedulerFactory;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.Date;
 
 /**
  * Demonstrates the behavior of <code>StatefulJob</code>s, as well as how misfire instructions affect the firings of
@@ -54,16 +52,6 @@ public class InterruptExample {
 
   public static void run(Scheduler sched) throws Exception {
     final Logger log = LoggerFactory.getLogger(InterruptExample.class);
-
-    /*log.info("------- Initializing ----------------------");
-
-    // First we must get a reference to a scheduler
-    SchedulerFactory sf = new StdSchedulerFactory();
-    Scheduler sched = sf.getScheduler();
-
-    log.info("------- Initialization Complete -----------");
-
-    log.info("------- Scheduling Jobs -------------------");*/
 
     // get a "nice round" time a few seconds in the future...
     Date startTime = nextGivenSecondDate(null, 15);

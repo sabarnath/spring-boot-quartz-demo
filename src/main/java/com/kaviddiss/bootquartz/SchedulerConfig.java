@@ -1,8 +1,12 @@
 package com.kaviddiss.bootquartz;
 
-import com.kaviddiss.bootquartz.job.SampleJob;
-import com.kaviddiss.bootquartz.spring.AutowiringSpringBeanJobFactory;
+import java.io.IOException;
+import java.util.Properties;
+
+import javax.sql.DataSource;
+
 import liquibase.integration.spring.SpringLiquibase;
+
 import org.quartz.JobDetail;
 import org.quartz.SimpleTrigger;
 import org.quartz.Trigger;
@@ -20,9 +24,8 @@ import org.springframework.scheduling.quartz.JobDetailFactoryBean;
 import org.springframework.scheduling.quartz.SchedulerFactoryBean;
 import org.springframework.scheduling.quartz.SimpleTriggerFactoryBean;
 
-import javax.sql.DataSource;
-import java.io.IOException;
-import java.util.Properties;
+import com.kaviddiss.bootquartz.job.SampleJob;
+import com.kaviddiss.bootquartz.spring.AutowiringSpringBeanJobFactory;
 
 /**
  * Created by david on 2015-01-20.

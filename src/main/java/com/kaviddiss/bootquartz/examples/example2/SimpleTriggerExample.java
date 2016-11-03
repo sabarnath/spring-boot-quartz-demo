@@ -44,18 +44,6 @@ public class SimpleTriggerExample {
   public static void run(Scheduler sched) throws Exception {
     Logger log = LoggerFactory.getLogger(SimpleTriggerExample.class);
 
-   /* log.info("------- Initializing -------------------");
-
-    // First we must get a reference to a scheduler
-    SchedulerFactory sf = new StdSchedulerFactory();
-    Scheduler sched = sf.getScheduler();
-
-    log.info("------- Initialization Complete --------");
-
-    log.info("------- Scheduling Jobs ----------------");*/
-
-    // jobs can be scheduled before sched.start() has been called
-
     // get a "nice round" time a few seconds in the future...
     Date startTime = DateBuilder.nextGivenSecondDate(null, 15);
 
@@ -157,16 +145,6 @@ public class SimpleTriggerExample {
     log.info("'Manually' triggering job8...");
     sched.triggerJob(jobKey("job8", "group2"));
 
-    log.info("------- Waiting 30 seconds... --------------");
-
-    /*try {
-      // wait 33 seconds to show jobs
-      Thread.sleep(30L * 1000L);
-      // executing...
-    } catch (Exception e) {
-      //
-    }*/
-
     // jobs can be re-scheduled...
     // job 7 will run immediately and repeat 10 times for every second
     log.info("------- Rescheduling... --------------------");
@@ -175,21 +153,6 @@ public class SimpleTriggerExample {
 
     ft = sched.rescheduleJob(trigger.getKey(), trigger);
     log.info("job7 rescheduled to run at: " + ft);
-
-    log.info("------- Waiting five minutes... ------------");
-    /*try {
-      // wait five minutes to show jobs
-      Thread.sleep(300L * 1000L);
-      // executing...
-    } catch (Exception e) {
-      //
-    }*/
-
-    log.info("------- Shutting Down ---------------------");
-
-   // sched.shutdown(true);
-
-    log.info("------- Shutdown Complete -----------------");
 
     // display some stats about the schedule that just ran
     SchedulerMetaData metaData = sched.getMetaData();

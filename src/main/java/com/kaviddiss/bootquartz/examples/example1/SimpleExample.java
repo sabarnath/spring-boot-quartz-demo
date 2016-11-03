@@ -54,28 +54,6 @@ public class SimpleExample {
     // Tell quartz to schedule the job using our trigger
     sched.scheduleJob(job, trigger);
     log.info(job.getKey() + " will run at: " + runTime);
-
-    // Start up the scheduler (nothing can actually run until the
-    // scheduler has been started)
-    //sched.start();
-
-    log.info("------- Started Scheduler -----------------");
-
-    // wait long enough so that the scheduler as an opportunity to
-    // run the job!
-    log.info("------- Waiting 65 seconds... -------------");
-/*    try {
-      // wait 65 seconds to show job
-      Thread.sleep(65L * 1000L);
-      // executing...
-    } catch (Exception e) {
-      //
-    }*/
-
-    // shut down the scheduler
-    log.info("------- Shutting Down ---------------------");
-    //sched.shutdown(true);
-    log.info("------- Shutdown Complete -----------------");
   }
 
 }
