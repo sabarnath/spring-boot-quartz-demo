@@ -34,7 +34,7 @@ import org.slf4j.LoggerFactory;
 /**
  * This Example will demonstrate how job parameters can be passed into jobs and how state can be maintained
  * 
- * @author Bill Kratzer
+ * @author 
  */
 public class JobStateExample {
 

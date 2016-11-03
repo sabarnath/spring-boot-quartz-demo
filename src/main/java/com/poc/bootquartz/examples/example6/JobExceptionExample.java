@@ -34,7 +34,7 @@ import org.slf4j.LoggerFactory;
 /**
  * This job demonstrates how Quartz can handle JobExecutionExceptions that are thrown by jobs.
  * 
- * @author Bill Kratzer
+ * @author 
  */
 public class JobExceptionExample {
 

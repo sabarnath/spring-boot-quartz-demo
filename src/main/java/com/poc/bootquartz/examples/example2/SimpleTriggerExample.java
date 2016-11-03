@@ -37,7 +37,7 @@ import org.slf4j.LoggerFactory;
 /**
  * This Example will demonstrate all of the basics of scheduling capabilities of Quartz using Simple Triggers.
  * 
- * @author Bill Kratzer
+ * @author 
  */
 public class SimpleTriggerExample {
 

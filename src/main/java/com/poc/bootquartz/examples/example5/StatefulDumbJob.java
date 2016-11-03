@@ -31,7 +31,7 @@ import java.util.Date;
  * A dumb implementation of Job, for unit testing purposes.
  * </p>
  * 
- * @author James House
+ * @author 
  */
 @PersistJobDataAfterExecution
 @DisallowConcurrentExecution

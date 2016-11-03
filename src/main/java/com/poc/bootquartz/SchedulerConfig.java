@@ -28,7 +28,7 @@ import com.poc.bootquartz.job.SampleJob;
 import com.poc.bootquartz.spring.AutowiringSpringBeanJobFactory;
 
 /**
- * Created by david on 2015-01-20.
+ * Created by  on 2015-01-20.
  */
 @Configuration
 @ConditionalOnProperty(name = "quartz.enabled")

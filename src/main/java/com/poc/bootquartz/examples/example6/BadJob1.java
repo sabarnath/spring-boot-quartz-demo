@@ -34,7 +34,7 @@ import java.util.Date;
  * A job dumb job that will throw a job execution exception
  * </p>
  * 
- * @author Bill Kratzer
+ * @author 
  */
 @PersistJobDataAfterExecution
 @DisallowConcurrentExecution

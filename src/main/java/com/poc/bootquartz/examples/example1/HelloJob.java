@@ -30,7 +30,7 @@ import org.quartz.JobExecutionException;
  * This is just a simple job that says "Hello" to the world.
  * </p>
  * 
- * @author Bill Kratzer
+ * @author 
  */
 public class HelloJob implements Job {
 

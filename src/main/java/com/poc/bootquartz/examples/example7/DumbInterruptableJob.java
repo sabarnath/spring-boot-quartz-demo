@@ -33,8 +33,8 @@ import org.quartz.UnableToInterruptJobException;
  * A dumb implementation of an InterruptableJob, for unit testing purposes.
  * </p>
  * 
- * @author <a href="mailto:bonhamcm@thirdeyeconsulting.com">Chris Bonham</a>
- * @author Bill Kratzer
+ * @author 
+ * @author 
  */
 public class DumbInterruptableJob implements InterruptableJob {
     

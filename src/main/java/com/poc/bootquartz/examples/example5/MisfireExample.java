@@ -46,7 +46,7 @@ import org.slf4j.LoggerFactory;
  * refire immediately, but rather at the next scheduled time.
  * </p>
  * 
- * @author <a href="mailto:bonhamcm@thirdeyeconsulting.com">Chris Bonham</a>
+ * @author 
  */
 public class MisfireExample {
 

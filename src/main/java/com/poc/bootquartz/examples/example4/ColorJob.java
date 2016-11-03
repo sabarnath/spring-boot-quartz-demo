@@ -35,7 +35,7 @@ import org.slf4j.LoggerFactory;
  * maintains state
  * </p>
  * 
- * @author Bill Kratzer
+ * @author 
  */
 @PersistJobDataAfterExecution
 @DisallowConcurrentExecution

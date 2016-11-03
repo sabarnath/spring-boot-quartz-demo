@@ -33,7 +33,6 @@ import org.slf4j.LoggerFactory;
  * This Example will demonstrate how to start and shutdown the Quartz scheduler and how to schedule a job to run in
  * Quartz.
  * 
- * @author Bill Kratzer
  */
 public class SimpleExample {
 
