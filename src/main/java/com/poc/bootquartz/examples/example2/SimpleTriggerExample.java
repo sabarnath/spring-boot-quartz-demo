@@ -41,14 +41,16 @@ import org.slf4j.LoggerFactory;
  */
 public class SimpleTriggerExample {
 
-  public static void run(Scheduler sched) throws Exception {
+
+
+public static void run(Scheduler sched) throws Exception {
     Logger log = LoggerFactory.getLogger(SimpleTriggerExample.class);
 
     // get a "nice round" time a few seconds in the future...
     Date startTime = DateBuilder.nextGivenSecondDate(null, 15);
 
     // job1 will only fire once at date/time "ts"
-    JobDetail job = newJob(SimpleJob.class).withIdentity("job1", "group2").build();
+    JobDetail job = newJob(SimpleJob.class).storeDurably().withIdentity("job1", "group2").build();
 
     SimpleTrigger trigger = (SimpleTrigger) newTrigger().withIdentity("trigger1", "group2").startAt(startTime).build();
 
@@ -58,7 +60,7 @@ public class SimpleTriggerExample {
              + trigger.getRepeatInterval() / 1000 + " seconds");
 
     // job2 will only fire once at date/time "ts"
-    job = newJob(SimpleJob.class).withIdentity("job2", "group2").build();
+    job = newJob(SimpleJob.class).storeDurably().withIdentity("job2", "group2").build();
 
     trigger = (SimpleTrigger) newTrigger().withIdentity("trigger2", "group2").startAt(startTime).build();
 
@@ -68,7 +70,7 @@ public class SimpleTriggerExample {
 
     // job3 will run 11 times (run once and repeat 10 more times)
     // job3 will repeat every 10 seconds
-    job = newJob(SimpleJob.class).withIdentity("job3", "group2").build();
+    job = newJob(SimpleJob.class).storeDurably().withIdentity("job3", "group2").build();
 
     trigger = newTrigger().withIdentity("trigger3", "group2").startAt(startTime)
         .withSchedule(simpleSchedule().withIntervalInSeconds(10).withRepeatCount(10)).build();
@@ -99,7 +101,7 @@ public class SimpleTriggerExample {
              + trigger.getRepeatInterval() / 1000 + " seconds");
 
     // job5 will run once, five minutes in the future
-    job = newJob(SimpleJob.class).withIdentity("job5", "group2").build();
+    job = newJob(SimpleJob.class).storeDurably().withIdentity("job5", "group2").build();
 
     trigger = (SimpleTrigger) newTrigger().withIdentity("trigger5", "group2")
         .startAt(futureDate(5, IntervalUnit.MINUTE)).build();

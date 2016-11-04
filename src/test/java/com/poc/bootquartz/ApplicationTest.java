@@ -1,5 +1,9 @@
 package com.poc.bootquartz;
 
+import static org.quartz.CronScheduleBuilder.cronSchedule;
+import static org.quartz.TriggerBuilder.newTrigger;
+
+import org.quartz.CronTrigger;
 import org.quartz.JobBuilder;
 import org.quartz.JobDetail;
 import org.quartz.Scheduler;
@@ -12,6 +16,10 @@ import org.testng.annotations.Test;
 
 import com.poc.bootquartz.Application;
 import com.poc.bootquartz.examples.example1.SimpleExample;
+import com.poc.bootquartz.examples.example10.Job1;
+import com.poc.bootquartz.examples.example10.Job2;
+import com.poc.bootquartz.examples.example10.Job3;
+import com.poc.bootquartz.examples.example10.QuartzSchedulerConfigurationExample;
 import com.poc.bootquartz.examples.example2.SimpleTriggerExample;
 import com.poc.bootquartz.examples.example3.CronTriggerExample;
 import com.poc.bootquartz.examples.example4.JobStateExample;
@@ -37,14 +45,24 @@ public class ApplicationTest extends AbstractTransactionalTestNGSpringContextTes
                 .forJob(jobDetail)
                 .startNow()
                 .build();
+        
+        JobDetail jobDetailq = JobBuilder.newJob(SampleJob.class).storeDurably().withIdentity("testcronJob").withDescription("This is cron to purpose only with cluster mode...")
+                .storeDurably(true)
+                .build();
+        
+        CronTrigger cronTrigger = newTrigger().withIdentity("testCronTrigger", "testgroup").withSchedule(cronSchedule("0/20 * * * * ?"))
+                .build();
 
         scheduler.scheduleJob(jobDetail, trigger);
+        scheduler.scheduleJob(jobDetailq, cronTrigger);
+        scheduler.start();
 
-        Thread.sleep(5000);
+        Thread.sleep(50000);
     }
     
     @Test
     public void test1() throws Exception {
+    	//scheduler.shutdown();
     	SimpleExample.run(scheduler);
         //Thread.sleep(5000);
     }
@@ -56,9 +74,15 @@ public class ApplicationTest extends AbstractTransactionalTestNGSpringContextTes
     }
     
     @Test
+    public void test3() throws Exception {
+    	CronTriggerExample.run(scheduler);
+    	scheduler.start();
+        Thread.sleep(500000);
+    }
+    
+    @Test
     public void testall() throws Exception {
     	SimpleExample.run(scheduler);
-    	scheduler.start();
     	SimpleTriggerExample.run(scheduler);
     	CronTriggerExample.run(scheduler);
     	JobStateExample.run(scheduler);
@@ -76,4 +100,13 @@ public class ApplicationTest extends AbstractTransactionalTestNGSpringContextTes
     	MisfireExample.run(scheduler);
     }
     
+    @Test
+    public void multiJobTriggerWithClusterTest() throws Exception{
+    	QuartzSchedulerConfigurationExample quartzSchedulerExample = new QuartzSchedulerConfigurationExample();
+			quartzSchedulerExample.fireJob(scheduler, Job1.class);
+			quartzSchedulerExample.fireJob(scheduler, Job2.class);
+			quartzSchedulerExample.fireJob(scheduler, Job3.class);
+			scheduler.start();
+			//scheduler.shutdown();
+    }
 }

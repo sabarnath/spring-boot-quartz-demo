@@ -22,6 +22,7 @@ import static org.quartz.JobBuilder.newJob;
 import static org.quartz.TriggerBuilder.newTrigger;
 
 import java.util.Date;
+import java.util.Properties;
 
 import org.quartz.CronTrigger;
 import org.quartz.JobDetail;
@@ -29,6 +30,9 @@ import org.quartz.Scheduler;
 import org.quartz.SchedulerMetaData;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.scheduling.quartz.CronTriggerFactoryBean;
+
+import com.poc.bootquartz.SchedulerConfig;
 
 /**
  * This Example will demonstrate all of the basics of scheduling capabilities of Quartz using Cron Triggers.
@@ -37,11 +41,14 @@ import org.slf4j.LoggerFactory;
  */
 public class CronTriggerExample {
 
+
+public CronTriggerFactoryBean cronTriggerFactoryBean;
+
   public static void run(Scheduler sched) throws Exception {
     Logger log = LoggerFactory.getLogger(CronTriggerExample.class);
 
     // job 1 will run every 20 seconds
-    JobDetail job = newJob(SimpleJob.class).withIdentity("job1", "group8").build();
+    JobDetail job = newJob(SimpleJob.class).storeDurably().withIdentity("job1", "group8").build();
 
     CronTrigger trigger = newTrigger().withIdentity("trigger1", "group8").withSchedule(cronSchedule("0/20 * * * * ?"))
         .build();
@@ -51,7 +58,7 @@ public class CronTriggerExample {
              + trigger.getCronExpression());
 
     // job 2 will run every other minute (at 15 seconds past the minute)
-    job = newJob(SimpleJob.class).withIdentity("job2", "group8").build();
+    job = newJob(SimpleJob.class).storeDurably().withIdentity("job2", "group8").build();
 
     trigger = newTrigger().withIdentity("trigger2", "group8").withSchedule(cronSchedule("15 0/2 * * * ?")).build();
 
@@ -60,7 +67,7 @@ public class CronTriggerExample {
              + trigger.getCronExpression());
 
     // job 3 will run every other minute but only between 8am and 5pm
-    job = newJob(SimpleJob.class).withIdentity("job3", "group8").build();
+    job = newJob(SimpleJob.class).storeDurably().withIdentity("job3", "group8").build();
 
     trigger = newTrigger().withIdentity("trigger3", "group8").withSchedule(cronSchedule("0 0/2 8-17 * * ?")).build();
 

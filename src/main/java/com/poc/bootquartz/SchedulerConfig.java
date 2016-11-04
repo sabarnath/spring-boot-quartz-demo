@@ -97,6 +97,11 @@ public class SchedulerConfig {
         return factoryBean;
     }
 
+    @Bean(name = "cronTriggerFactoryBean")
+    public CronTriggerFactoryBean cronTriggerFactoryBean(@Qualifier("sampleJobDetail") JobDetail jobDetail, @Value("${cron.trigger.with.expression}") String cronExpression) {
+        return createCronTrigger(jobDetail, cronExpression);
+    }
+    
     // Use this method for creating cron triggers instead of simple triggers:
     private static CronTriggerFactoryBean createCronTrigger(JobDetail jobDetail, String cronExpression) {
         CronTriggerFactoryBean factoryBean = new CronTriggerFactoryBean();
