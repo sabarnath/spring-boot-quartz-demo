@@ -2,50 +2,50 @@
 <testng-results skipped="0" failed="0" total="1" passed="1">
   <reporter-output>
   </reporter-output>
-  <suite name="Default suite" duration-ms="7873" started-at="2016-11-03T07:05:21Z" finished-at="2016-11-03T07:05:29Z">
+  <suite name="Default suite" duration-ms="3459" started-at="2016-11-04T15:15:53Z" finished-at="2016-11-04T15:15:56Z">
     <groups>
     </groups>
-    <test name="Default test" duration-ms="7873" started-at="2016-11-03T07:05:21Z" finished-at="2016-11-03T07:05:29Z">
-      <class name="com.kaviddiss.bootquartz.ApplicationTest">
-        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.kaviddiss.bootquartz.ApplicationTest@6385cb26]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="5" started-at="2016-11-03T12:35:21Z" finished-at="2016-11-03T12:35:21Z">
+    <test name="Default test" duration-ms="3459" started-at="2016-11-04T15:15:53Z" finished-at="2016-11-04T15:15:56Z">
+      <class name="com.poc.bootquartz.ApplicationTest">
+        <test-method status="PASS" signature="springTestContextBeforeTestClass()[pri:0, instance:com.poc.bootquartz.ApplicationTest@797badd3]" name="springTestContextBeforeTestClass" is-config="true" duration-ms="6" started-at="2016-11-04T20:45:53Z" finished-at="2016-11-04T20:45:53Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextBeforeTestClass -->
-        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.kaviddiss.bootquartz.ApplicationTest@6385cb26]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="2776" started-at="2016-11-03T12:35:21Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2016-11-03T12:35:24Z">
+        <test-method status="PASS" signature="springTestContextPrepareTestInstance()[pri:0, instance:com.poc.bootquartz.ApplicationTest@797badd3]" name="springTestContextPrepareTestInstance" is-config="true" duration-ms="3226" started-at="2016-11-04T20:45:53Z" depends-on-methods="org.springframework.test.context.testng.AbstractTestNGSpringContextTests.springTestContextBeforeTestClass" finished-at="2016-11-04T20:45:56Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextPrepareTestInstance -->
-        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.kaviddiss.bootquartz.ApplicationTest@6385cb26]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="7" started-at="2016-11-03T12:35:24Z" finished-at="2016-11-03T12:35:24Z">
+        <test-method status="PASS" signature="springTestContextBeforeTestMethod(java.lang.reflect.Method)[pri:0, instance:com.poc.bootquartz.ApplicationTest@797badd3]" name="springTestContextBeforeTestMethod" is-config="true" duration-ms="8" started-at="2016-11-04T20:45:56Z" finished-at="2016-11-04T20:45:56Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.kaviddiss.bootquartz.ApplicationTest.test() throws java.lang.Exception]]>
+                <![CDATA[public void com.poc.bootquartz.ApplicationTest.multiJobTriggerWithClusterTest() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextBeforeTestMethod -->
-        <test-method status="PASS" signature="test()[pri:0, instance:com.kaviddiss.bootquartz.ApplicationTest@6385cb26]" name="test" duration-ms="5021" started-at="2016-11-03T12:35:24Z" finished-at="2016-11-03T12:35:29Z">
+        <test-method status="PASS" signature="multiJobTriggerWithClusterTest()[pri:0, instance:com.poc.bootquartz.ApplicationTest@797badd3]" name="multiJobTriggerWithClusterTest" duration-ms="71" started-at="2016-11-04T20:45:56Z" finished-at="2016-11-04T20:45:56Z">
           <reporter-output>
           </reporter-output>
-        </test-method> <!-- test -->
-        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.kaviddiss.bootquartz.ApplicationTest@6385cb26]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="54" started-at="2016-11-03T12:35:29Z" finished-at="2016-11-03T12:35:29Z">
+        </test-method> <!-- multiJobTriggerWithClusterTest -->
+        <test-method status="PASS" signature="springTestContextAfterTestMethod(java.lang.reflect.Method)[pri:0, instance:com.poc.bootquartz.ApplicationTest@797badd3]" name="springTestContextAfterTestMethod" is-config="true" duration-ms="134" started-at="2016-11-04T20:45:56Z" finished-at="2016-11-04T20:45:56Z">
           <params>
             <param index="0">
               <value>
-                <![CDATA[public void com.kaviddiss.bootquartz.ApplicationTest.test() throws java.lang.Exception]]>
+                <![CDATA[public void com.poc.bootquartz.ApplicationTest.multiJobTriggerWithClusterTest() throws java.lang.Exception]]>
               </value>
             </param>
           </params>
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestMethod -->
-        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.kaviddiss.bootquartz.ApplicationTest@6385cb26]" name="springTestContextAfterTestClass" is-config="true" duration-ms="0" started-at="2016-11-03T12:35:29Z" finished-at="2016-11-03T12:35:29Z">
+        <test-method status="PASS" signature="springTestContextAfterTestClass()[pri:0, instance:com.poc.bootquartz.ApplicationTest@797badd3]" name="springTestContextAfterTestClass" is-config="true" duration-ms="0" started-at="2016-11-04T20:45:56Z" finished-at="2016-11-04T20:45:56Z">
           <reporter-output>
           </reporter-output>
         </test-method> <!-- springTestContextAfterTestClass -->
-      </class> <!-- com.kaviddiss.bootquartz.ApplicationTest -->
+      </class> <!-- com.poc.bootquartz.ApplicationTest -->
     </test> <!-- Default test -->
   </suite> <!-- Default suite -->
 </testng-results>
