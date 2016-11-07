@@ -52,7 +52,7 @@ public class SchedulerConfig {
         factory.setOverwriteExistingJobs(true);
         factory.setDataSource(dataSource);
         factory.setJobFactory(jobFactory);
-
+        factory.setSchedulerName("spring-boot-quartz-demo");
         factory.setQuartzProperties(quartzProperties());
 //        factory.setTriggers(sampleJobTrigger);
 
