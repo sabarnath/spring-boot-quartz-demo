@@ -1,15 +1,20 @@
 package com.poc.bootquartz;
 
 import java.io.IOException;
+import java.util.Date;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Properties;
 
 import javax.sql.DataSource;
 
 import liquibase.integration.spring.SpringLiquibase;
 
+import org.quartz.Calendar;
 import org.quartz.JobDetail;
 import org.quartz.SimpleTrigger;
 import org.quartz.Trigger;
+import org.quartz.impl.calendar.HolidayCalendar;
 import org.quartz.spi.JobFactory;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.beans.factory.annotation.Value;
@@ -54,6 +59,16 @@ public class SchedulerConfig {
         factory.setJobFactory(jobFactory);
         factory.setSchedulerName("spring-boot-quartz-demo");
         factory.setQuartzProperties(quartzProperties());
+        factory.setSchedulerListeners(new MySchedulerListener());
+        
+        //Added custom calendar details if ur wish
+        HolidayCalendar cal = new HolidayCalendar();
+        //consider holiday as today..
+        cal.addExcludedDate( new Date() );
+        //cal.addExcludedDate( new Date(-1) );
+        Map<String, Calendar> calMap = new HashMap<String, Calendar>();
+        calMap.put("myHolidays", cal);
+        factory.setCalendars(calMap);
 //        factory.setTriggers(sampleJobTrigger);
 
         return factory;
