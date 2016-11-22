@@ -61,8 +61,7 @@ public class HelloWorldController {
                             .withIdentity(triggerName, _groupName)
                             .startNow()
                             .usingJobData(jobDataMap)
-                            .withSchedule(
-                                    simpleSchedule().withIntervalInSeconds(10).withRepeatCount(10))
+                            //.withSchedule(simpleSchedule().withIntervalInSeconds(10).withRepeatCount(10))
                             .build();
 
             // Tell quartz to schedule the job using our trigger

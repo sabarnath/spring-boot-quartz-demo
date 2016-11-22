@@ -1,9 +1,16 @@
 
 package com.poc.bootquartz.examples.example1;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.Map.Entry;
 
+import org.apache.http.HttpResponse;
+import org.apache.http.client.ClientProtocolException;
+import org.apache.http.client.methods.HttpGet;
+import org.apache.http.conn.ssl.NoopHostnameVerifier;
+import org.apache.http.impl.client.CloseableHttpClient;
+import org.apache.http.impl.client.HttpClientBuilder;
 import org.quartz.Job;
 import org.quartz.JobDataMap;
 import org.quartz.JobExecutionContext;
@@ -65,6 +72,18 @@ public class RestControllerJob implements Job {
             }
         }
         _log.info("----------------------------------------------------------------");
+        _log.info("Gonna trigger the batch job");
+        //HttpCall
+        CloseableHttpClient httpClient = HttpClientBuilder.create().setSSLHostnameVerifier(NoopHostnameVerifier.INSTANCE).build();
+        HttpGet httpGet = new HttpGet("http://localhost:8080/runUserImport");
+        
+        try {
+            HttpResponse httpResp = httpClient.execute(httpGet);
+            _log.info("Successfully sent the Job request from scheduler trigger.....{}",httpResp.getStatusLine());
+        } catch (ClientProtocolException e) {
+            _log.error("Error while call the httpclient ",e);
+        } catch (IOException e) {
+            _log.error("Error while call the httpclient ",e);
+        }
     }
-
 }
